@@ -1,5 +1,5 @@
-remove VERB pres
-removed VERB past
+delete VERB pres
+deleted VERB past
 move VERB pres
 moved VERB past
 rename VERB pres
@@ -11,5 +11,11 @@ folders NOUN plur
 music NOUN sing
 music NOUN plur
 if CONJ
+
 size NOUN
 less COMP
+
+more COMP
+equal COMP
+
+create VERB pres

@@ -1,2 +1,3 @@
 music (file*(extention, "ogg")∨file*(extention, "mp3")∨file*(extention, "acc"))
 document file*(extention, ("doc" ∨ "docx" ∨ "odt"))
+executable file*(extention, ("exe" ∨ "sh" ∨ "bash" ∨ "bat"))

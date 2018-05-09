@@ -19,18 +19,32 @@ extensionName Variable Literal
 sourceFileName Variable Literal
 destinationFileName Variable Literal
 condition Variable [entity]
+
 thenAction Variable ↑Action
-elseAction Variable [entity]
+
+# Переменные для разделения файла и папки
+fileVar Variable ↑file
+folderVar Variable ↑folder
+
 object Variable ↑DiskObject
 target Variable ↑DiskObject
-remove UniversumItem ↑remove
+delete UniversumItem ↑delete
 move UniversumItem ↑move
 rename UniversumItem ↑rename
+
+# Новая операция для создания
+create UniversumItem ↑create
+
 music UniversumItem ↑music
 action1 Variable Action
+
 if UniversumItem ↑if
 size Func {([entity],Literal)}
 less Rel {([entity],[entity])}
+
+more Rel {([entity],[entity])}
+equal Rel {([entity],[entity])}
+
 x1 Variable [entity]
 x2 Variable [entity]
 x3 Variable [entity]

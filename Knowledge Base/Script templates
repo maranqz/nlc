@@ -1,11 +1,17 @@
-remove*(Source, object) => rm {object}
+delete*(Source, object) => rm {object}
+
+create*(Source, folderVar) => mkdir {folderVar}
+create*(Source, fileVar) => touch{fileVar}
+
 move*(Source, object)(Destination, target) => mv {object} {target}
 file*(extention, extensionName) => *.{extensionName}
 file*(Name, fileName)(Extension, extensionName) => {fileName}.{extensionName}
 file*(Name, fileName) => {fileName}
 folder*(Name, fileName) => {fileName}/
 rename*(Source, object)(NewName, targetName) => mv {object} {targetName}
-if(condition,thenAction) => if [ {condition} ]; then {thenAction}; fi
+if(condition,thenAction) => if [[ {condition} ]]; then {thenAction}; fi
 less(x1, x2) => {x1} -lt {x2}
 size(object) => $(du -s {object} | awk '{print $1}')
 
+more(x1, x2) => {x1} -gt {x2}
+equal(x1, x2) => {x1} -eq {x2}
