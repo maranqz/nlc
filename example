@@ -1,0 +1,6 @@
+move file "a.txt" to folder "Desktop" if size of file "a.txt" less than "2000" else move file "a.txt" to folder "Desktop1"
+
+move file "a.txt" to folder "Desktop" if size of file "a.txt" less than "2000" and size of file "a.txt" more than "1500" or size of file "a.txt" equal "10"
+
+create file "a.txt"
+create folder "a.txt"

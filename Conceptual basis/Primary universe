@@ -1,0 +1,37 @@
+Literal UniversumItem ↑Literal
+Proposition UniversumItem ↑Proposition
+DiskObject UniversumItem ↑DiskObject
+file UniversumItem ↑file
+folder UniversumItem ↑folder
+Place UniversumItem {(DiskObject, Path)}
+Document UniversumItem DiskObject
+Image UniversumItem DiskObject
+Music UniversumItem DiskObject
+Action UniversumItem ↑Action
+IsAction Rel {(Action)}
+Delete UniversumItem Action
+Name Func {(DiskObject, Literal)}
+Source Rel {(Action, DiskObject)}
+Destination Rel {(Action, DiskObject)}
+fileName Variable Literal
+targetName Variable Literal
+extensionName Variable Literal
+sourceFileName Variable Literal
+destinationFileName Variable Literal
+condition Variable [entity]
+thenAction Variable ↑Action
+elseAction Variable [entity]
+object Variable ↑DiskObject
+target Variable ↑DiskObject
+remove UniversumItem ↑remove
+move UniversumItem ↑move
+rename UniversumItem ↑rename
+music UniversumItem ↑music
+action1 Variable Action
+if UniversumItem ↑if
+size Func {([entity],Literal)}
+less Rel {([entity],[entity])}
+x1 Variable [entity]
+x2 Variable [entity]
+x3 Variable [entity]
+x4 Variable [entity]
