@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 
+use \DLP\commands\Morphological;
 use DLP\commands\dictionary\CreateCommand;
 use DLP\commands\dictionary\RemoveCommand;
 use DLP\commands\dictionary\ViewCommand;
@@ -16,7 +17,9 @@ AnnotationRegistry::registerLoader([$loader, 'loadClass']);
 
 $app = new Application();
 
-$commands = [];
+$commands = [
+	new Morphological()
+];
 
 foreach (\DLP\commands\dictionary\DictionaryCommand::DICTIONARIES as $command => $class) {
 	$commands[] = new CreateCommand(CreateCommand::getDefaultName() . ':' . $command);

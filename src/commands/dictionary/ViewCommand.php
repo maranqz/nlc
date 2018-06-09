@@ -3,6 +3,7 @@
 namespace DLP\commands\dictionary;
 
 
+use DLP\components\Render;
 use DLP\dictionaries\Dictionary;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -38,15 +39,6 @@ class ViewCommand extends DictionaryCommand
 			$rows = $this->dictionary->writeLn();
 		}
 
-		$this->renderTable($output, $rows);
-	}
-
-	protected function renderTable(OutputInterface $output, $rows)
-	{
-		$table = new Table($output);
-
-		$table->setHeaders($this->dictionary->firstLine())
-			->setRows($rows);
-		$table->render();
+		Render::table($output, $rows, $this->dictionary->firstLine());
 	}
 }
