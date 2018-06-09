@@ -1,0 +1,61 @@
+{
+  "1": {
+    "index": "1",
+    "lexeme": "издательство",
+    "sem": "издательство1",
+    "semanticCoordinate1": "",
+    "semanticCoordinate2": "",
+    "semanticCoordinate3": "",
+    "comment": ""
+  },
+  "10": {
+    "index": "10",
+    "lexeme": "московский",
+    "partCase": "ADJF",
+    "sem": {
+      "type": "Rel",
+      "name": "Локация",
+      "vars": [
+        "z1",
+        "место1"
+      ]
+    },
+    "semanticCoordinate1": "",
+    "semanticCoordinate2": "",
+    "semanticCoordinate3": "",
+    "comment": ""
+  },
+  "20": {
+    "index": "20",
+    "lexeme": "год",
+    "partCase": "NOUN",
+    "sem": "дата1",
+    "semanticCoordinate1": "",
+    "semanticCoordinate2": "",
+    "semanticCoordinate3": "",
+    "comment": ""
+  },
+  "30": {
+    "index": "30",
+    "lexeme": "выйти",
+    "partCase": "VERB",
+    "sem": "выйти1",
+    "semanticCoordinate1": {
+      "type": "active",
+      "name": "сит"
+    },
+    "semanticCoordinate2": "",
+    "semanticCoordinate3": "",
+    "comment": "выйти в газете"
+  },
+  "40": {
+    "index": "40",
+    "lexeme": "работа",
+    "partCase": "NOUN",
+    "sem": "работа",
+    "semanticCoordinate1": "работа1",
+    "semanticCoordinate2": "",
+    "semanticCoordinate3": "",
+    "comment": "научная работа \"Основы обработки знаний\""
+  }
+}
