@@ -22,6 +22,7 @@ abstract class Dictionary implements \ArrayAccess
 	abstract public function firstLine();
 
 	private $items = [];
+	protected $itemsByLexemes = [];
 
 	private function __construct()
 	{
@@ -33,6 +34,7 @@ abstract class Dictionary implements \ArrayAccess
 				$this->itemClass() . '[]',
 				'json'
 			);
+
 	}
 
 	protected function init()
@@ -78,13 +80,13 @@ abstract class Dictionary implements \ArrayAccess
 
 	public function getItemProperties($index = false)
 	{
-		$values = get_class_vars($this->itemClass());
+		/** @var DictionaryItem $className */
+		$className = $this->itemClass();
+		$values = $className::properties();
 		if (!$index) {
-			unset($values['index']);
+			unset($values[0]);
 		}
-		return array_keys(
-			$values
-		);
+		return $values;
 	}
 
 	public function writeLn()

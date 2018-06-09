@@ -12,6 +12,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class DictionaryItem
 {
+	public static function properties()
+	{
+		return [
+			'index'
+		];
+	}
+
 	/**
 	 * @var integer
 	 *
@@ -24,7 +31,12 @@ class DictionaryItem
 
 	public function writeLn()
 	{
-		return array_values(get_object_vars($this));
+		$result = [];
+		foreach (static::properties() as $property) {
+			$result[$property] = $this->$property;
+		}
+
+		return $result;
 	}
 
 	public function validation()

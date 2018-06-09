@@ -9,6 +9,21 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class LsItem extends DictionaryItem
 {
+	public static function properties()
+	{
+		$properties = parent::properties();
+
+		$properties[] = 'lexeme';
+		$properties[] = 'partCase';
+		$properties[] = 'sem';
+		$properties[] = 'semanticCoordinate1';
+		$properties[] = 'semanticCoordinate2';
+		$properties[] = 'semanticCoordinate3';
+		$properties[] = 'comment';
+
+		return $properties;
+	}
+
 	/**
 	 * @var string
 	 * @Assert\NotBlank()
