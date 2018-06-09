@@ -18,7 +18,7 @@ class Morphological
 
 	private function __construct()
 	{
-		$this->morphy = Morphy::getInstance();
+		$this->morphy = new Morphy();
 	}
 
 	public function getHeaders()

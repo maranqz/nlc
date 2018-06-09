@@ -1,7 +1,9 @@
 <?php
+
 namespace DLP\components\exceptions;
 
 
-class WordNotFound extends NotFound
+class ItemDictionaryNotFound extends NotFound
 {
+
 }

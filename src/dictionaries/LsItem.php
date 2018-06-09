@@ -13,12 +13,12 @@ class LsItem extends DictionaryItem
 	{
 		$properties = parent::properties();
 
-		$properties[] = 'lexeme';
-		$properties[] = 'partCase';
+		$properties[] = 'lec';
+		$properties[] = 'pt';
 		$properties[] = 'sem';
-		$properties[] = 'semanticCoordinate1';
-		$properties[] = 'semanticCoordinate2';
-		$properties[] = 'semanticCoordinate3';
+		$properties[] = 'st1';
+		$properties[] = 'st2';
+		$properties[] = 'st3';
 		$properties[] = 'comment';
 
 		return $properties;
@@ -28,7 +28,7 @@ class LsItem extends DictionaryItem
 	 * @var string
 	 * @Assert\NotBlank()
 	 */
-	public $lexeme;
+	public $lec;
 	/**
 	 * @var string
 	 * @Assert\NotBlank()
@@ -37,7 +37,7 @@ class LsItem extends DictionaryItem
 	 *      max = 100
 	 * )
 	 */
-	public $partCase;
+	public $pt;
 	/**
 	 * @var string
 	 * @Assert\NotBlank()
@@ -51,11 +51,11 @@ class LsItem extends DictionaryItem
 	 */
 	public $sem;
 	/** @var string */
-	public $semanticCoordinate1;
+	public $st1;
 	/** @var string */
-	public $semanticCoordinate2;
+	public $st2;
 	/** @var string */
-	public $semanticCoordinate3;
+	public $st3;
 	/** @var string */
 	public $comment;
 }

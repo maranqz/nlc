@@ -15,8 +15,13 @@ class DictionaryItem
 	public static function properties()
 	{
 		return [
-			'index'
+			'i'
 		];
+	}
+
+	public static function getHash()
+	{
+		return 'lec';
 	}
 
 	/**
@@ -27,9 +32,9 @@ class DictionaryItem
 	 *      min = 1
 	 * )
 	 */
-	public $index;
+	public $i;
 
-	public function writeLn()
+	public function asArray()
 	{
 		$result = [];
 		foreach (static::properties() as $property) {

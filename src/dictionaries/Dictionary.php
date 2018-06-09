@@ -2,6 +2,8 @@
 
 namespace DLP\dictionaries;
 
+use DLP\components\exceptions\ItemDictionaryNotFound;
+use DLP\components\exceptions\WordNotFound;
 use DLP\components\Serializer;
 use DLP\components\Singleton;
 
@@ -19,10 +21,25 @@ abstract class Dictionary implements \ArrayAccess
 	/**
 	 * @return array
 	 */
-	abstract public function firstLine();
+	public function firstLine()
+	{
+		/** @var DictionaryItem $className */
+		$className = $this->itemClass();
+		return $className::properties();
+	}
+
+	/**
+	 * @return array
+	 */
+	abstract public function projections($sentence);
+
+	/**
+	 * @return array
+	 */
+	abstract public function projection($word);
 
 	private $items = [];
-	protected $itemsByLexemes = [];
+	protected $itemsByHash = [];
 
 	private function __construct()
 	{
@@ -35,6 +52,10 @@ abstract class Dictionary implements \ArrayAccess
 				'json'
 			);
 
+		foreach ($this->items as $index => $item) {
+			$hash = $item->getHash();
+			$this->itemsByHash[$item->$hash][] = $item;
+		}
 	}
 
 	protected function init()
@@ -62,7 +83,7 @@ abstract class Dictionary implements \ArrayAccess
 
 		$item->validation();
 
-		$this[$item->index] = $item;
+		$this[$item->i] = $item;
 
 		$this->save();
 
@@ -94,7 +115,7 @@ abstract class Dictionary implements \ArrayAccess
 		$result = [];
 
 		foreach ($this->items as $item) {
-			$result[] = $item->writeLn();
+			$result[] = $item->asArray();
 		}
 
 		return $result;
@@ -103,6 +124,20 @@ abstract class Dictionary implements \ArrayAccess
 	protected function pathFile()
 	{
 		return __DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . $this->dataFile();
+	}
+
+	/**
+	 * @param $hash
+	 * @return DictionaryItem
+	 */
+	public function getByHash($hash)
+	{
+
+		if (empty($this->itemsByHash[$hash])) {
+			throw new ItemDictionaryNotFound('The word "' . $hash . '" is not found in dictionary');
+		}
+
+		return $this->itemsByHash[$hash];
 	}
 
 	/**
