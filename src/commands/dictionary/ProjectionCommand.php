@@ -3,9 +3,8 @@
 namespace DLP\commands\dictionary;
 
 
+use DLP\components\Preparing;
 use DLP\components\Render;
-use DLP\dictionaries\Dictionary;
-use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -28,8 +27,9 @@ class ProjectionCommand extends DictionaryCommand
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		parent::execute($input, $output);
-		
-		$rows = $this->dictionary->projections($input->getArgument('sentence'));
+
+		$words = Preparing::getWords($input->getArgument('sentence'));
+		$rows = $this->dictionary->projections($words);
 
 		if (!empty($rows)) {
 			$header = array_keys($rows[0]);

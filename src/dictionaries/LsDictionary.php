@@ -24,13 +24,9 @@ class LsDictionary extends Dictionary
 		return LsItem::class;
 	}
 
-	public function projections($sentence)
+	public function projections($words)
 	{
 		$result = [];
-
-		$words = explode(' ', $sentence);
-
-		print_r($words);
 
 		$index = 1;
 		foreach ($words as $word) {

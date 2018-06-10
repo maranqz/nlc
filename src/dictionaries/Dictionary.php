@@ -31,7 +31,7 @@ abstract class Dictionary implements \ArrayAccess
 	/**
 	 * @return array
 	 */
-	abstract public function projections($sentence);
+	abstract public function projections($words);
 
 	/**
 	 * @return array

@@ -24,6 +24,7 @@ class Morphological
 	public function getHeaders()
 	{
 		return [
+			'Поз',
 			'НФ',
 			'ЧР',
 			'Грамматика',
@@ -50,7 +51,22 @@ class Morphological
 		return $result;
 	}
 
-	public function getTable($word, $isSeparator = false)
+	public function getPartOfSpeech($word, $one = true)
+	{
+		$result = $this->morphy->getPartOfSpeech($word);
+
+		if (empty($result)) {
+			throw new WordNotFound('The word "' . $word . '" is not found.');
+		}
+
+		if ($one) {
+			$result = $result[0];
+		}
+
+		return $result;
+	}
+
+	public function getWordRows($word, $isSeparator = false)
 	{
 		$rows = [];
 
@@ -87,6 +103,29 @@ class Morphological
 		if ($isSeparator) {
 			unset($rows[count($rows) - 1]);
 		}
+
+		return $rows;
+	}
+
+	public function getWordsRows($words)
+	{
+		$rows = [];
+
+		$pos = 1;
+		foreach ($words as $word) {
+			$items = $this->getWordRows($word, true);
+
+			foreach ($items as $item) {
+				array_unshift($item, $pos);
+				$rows[] = $item;
+			}
+			$pos++;
+			$rows[] = new TableSeparator();
+			$rows[] = new TableSeparator();
+		}
+
+		$last = count($rows) - 1;
+		unset($rows[$last--], $rows[$last]);
 
 		return $rows;
 	}
