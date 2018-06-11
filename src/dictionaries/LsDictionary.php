@@ -64,7 +64,7 @@ class LsDictionary extends Dictionary
 
 		foreach ($items as $item) {
 			$item = $item->asArray();
-			unset($item['index']);
+			unset($item['i']);
 
 
 			$result[] = $item;

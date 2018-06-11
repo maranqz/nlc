@@ -29,7 +29,7 @@ class ViewCommand extends DictionaryCommand
 	{
 		parent::execute($input, $output);
 
-		if ($index = $input->getOption('index')) {
+		if ($index = $input->getOption('i')) {
 			if (empty($this->dictionary[$index])) {
 				throw new \InvalidArgumentException('The index "' . $index . '" is not exist');
 			}

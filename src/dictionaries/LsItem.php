@@ -24,6 +24,11 @@ class LsItem extends DictionaryItem
 		return $properties;
 	}
 
+	public static function getHash()
+	{
+		return 'lec';
+	}
+
 	/**
 	 * @var string
 	 * @Assert\NotBlank()

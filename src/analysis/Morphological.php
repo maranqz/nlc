@@ -116,6 +116,9 @@ class Morphological
 			$items = $this->getWordRows($word, true);
 
 			foreach ($items as $item) {
+				if (!is_array($item)) {
+					continue;
+				}
 				array_unshift($item, $pos);
 				$rows[] = $item;
 			}

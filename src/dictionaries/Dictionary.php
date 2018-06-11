@@ -3,7 +3,6 @@
 namespace DLP\dictionaries;
 
 use DLP\components\exceptions\ItemDictionaryNotFound;
-use DLP\components\exceptions\WordNotFound;
 use DLP\components\Serializer;
 use DLP\components\Singleton;
 

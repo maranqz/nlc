@@ -4,6 +4,7 @@ namespace DLP\commands\dictionary;
 
 
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class RemoveCommand extends DictionaryCommand
@@ -17,13 +18,14 @@ class RemoveCommand extends DictionaryCommand
 	{
 		parent::configure();
 		$this
-			->setDescription('Удаляет элемент в выбранном словаре.');
+			->setDescription('Удаляет элемент в выбранном словаре.')
+			->addOption('i', null, InputOption::VALUE_REQUIRED);
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		parent::execute($input, $output);
 
-		$this->dictionary->remove($input->getOption('index'));
+		$this->dictionary->remove($input->getOption('i'));
 	}
 }

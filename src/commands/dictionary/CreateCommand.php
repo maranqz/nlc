@@ -9,7 +9,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CreateCommand extends DictionaryCommand
 {
-	protected $optionsByProperties = true;
+	protected $optionsByProperties = [
+		'index' => true
+	];
 
 	public static function getDefaultName()
 	{
@@ -19,15 +21,14 @@ class CreateCommand extends DictionaryCommand
 	protected function configure()
 	{
 		parent::configure();
-		$this->setDescription('Создает новый элемент в выбранном словаре.')
-			->addOption('index', null, InputOption::VALUE_REQUIRED, 'Index of element');
+		$this->setDescription('Создает новый элемент в выбранном словаре.');
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		parent::execute($input, $output);
 
-		$dicItemProperties = $this->dictionary->getItemProperties();
+		$dicItemProperties = $this->dictionary->getItemProperties(true);
 
 		$properties = [];
 		foreach ($dicItemProperties as $property) {

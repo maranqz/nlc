@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Class DictionaryItem
  */
-class DictionaryItem
+abstract class DictionaryItem
 {
 	public static function properties()
 	{
@@ -19,9 +19,8 @@ class DictionaryItem
 		];
 	}
 
-	public static function getHash()
-	{
-		return 'lec';
+	public static function getHash(){
+		throw new \BadMethodCallException('Realise getHash for Item');
 	}
 
 	/**

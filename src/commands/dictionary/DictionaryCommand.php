@@ -40,7 +40,14 @@ abstract class DictionaryCommand extends Command
 
 	private function addOptionsByProperties()
 	{
-		$dicItemProperties = $this->dictionary->getItemProperties();
+		if (!empty($this->optionsByProperties)) {
+			$options = $this->optionsByProperties;
+		} else {
+			$options = [
+				'index' => false,
+			];
+		}
+		$dicItemProperties = $this->dictionary->getItemProperties($options);
 
 		foreach ($dicItemProperties as $dicItemProperty) {
 			if (!$this->getDefinition()->hasOption($dicItemProperty)) {
